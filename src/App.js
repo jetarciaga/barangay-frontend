@@ -9,6 +9,7 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import SignUp from "./components/Forms/Signup/Signup";
 import { useAuth } from "./context/AuthContext";
+import NotFound from "./components/NotFound/NotFound";
 
 const App = () => {
   const auth = useAuth();
@@ -34,7 +35,7 @@ const App = () => {
             </PrivateRoute>
           }
         />
-        <Route path="*" element={<Navigate to="/login" />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
