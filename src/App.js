@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Route, Routes, Navigate } from "react-router-dom";
+import PrivateRoute from "./routes/PrivateRoute";
+import Dashboard from "./components/Dashboard/Dashboard";
+import Login from "./components/Forms/Login/Login";
+import AppointmentForm from "./components/Appointment/AppointmentForm";
 
-function App() {
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import SignUp from "./components/Forms/Signup/Signup";
+import { useAuth } from "./context/AuthContext";
+
+const App = () => {
+  const auth = useAuth();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {auth.isAuthenticated && <Header />}
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route
+          path="/dashboard"
+          element={
+            <PrivateRoute>
+              <Dashboard />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/appointment"
+          element={
+            <PrivateRoute>
+              <AppointmentForm />
+            </PrivateRoute>
+          }
+        />
+        <Route path="*" element={<Navigate to="/login" />} />
+      </Routes>
     </div>
   );
-}
+};
 
 export default App;
