@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "./Login.css";
-import { useAuth } from "../../../context/AuthContext";
+import { useAuth } from "../context/AuthContext";
 import { Navigate, useNavigate } from "react-router-dom";
+import putatanLogo from "../assets/images/putatanLogo.png";
 
 const Login = ({ onToggle }) => {
   const [email, setEmail] = useState("");
@@ -26,6 +26,7 @@ const Login = ({ onToggle }) => {
 
   return (
     <section className="login-form">
+      <img src={putatanLogo} alt="" />
       <h2>Login</h2>
       {error && <p>{error}</p>}
       <form onSubmit={handleSubmit}>

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { validateEmail } from "../../../utils/validations";
-import "./Signup.css";
+import { validateEmail } from "../utils/validations";
 
 const PasswordErrorMessage = () => {
   return (
@@ -59,6 +58,7 @@ const SignUp = ({ onToggle }) => {
     e.preventDefault();
     alert("Account created!");
     clearForm();
+    onToggle();
   };
 
   return (
@@ -111,7 +111,9 @@ const SignUp = ({ onToggle }) => {
             onChange={(e) =>
               setConfirmPassword({ ...confirmPassword, value: e.target.value })
             }
-            onBlur={() => setConfirmPassword({ ...password, isTouched: true })}
+            onBlur={() =>
+              setConfirmPassword({ ...confirmPassword, isTouched: true })
+            }
             placeholder="Confirm your password"
             required
           />

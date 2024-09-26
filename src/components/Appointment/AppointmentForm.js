@@ -38,6 +38,7 @@ const AppointmentForm = () => {
           <button type="submit">Schedule an Appointment</button>
         </form>
       </section>
+
       <button onClick={handleLogout}>Logout</button>
     </>
   );
