@@ -12,7 +12,7 @@ const TimePicker = ({ selectedTime, onTimeChange }) => {
 
   return (
     <fieldset className="form-group">
-      <legend>Select Time:</legend>
+      <legend>Select Time</legend>
       <select
         id="appointmentTime"
         value={selectedTime}

@@ -14,7 +14,7 @@ const App = () => {
   const auth = useAuth();
 
   return (
-    <div>
+    <main>
       {auth.isAuthenticated && <Header />}
       <Routes>
         <Route path="/" element={<Home />} />
@@ -36,7 +36,7 @@ const App = () => {
         />
         <Route path="*" element={<NotFound />} />
       </Routes>
-    </div>
+    </main>
   );
 };
 

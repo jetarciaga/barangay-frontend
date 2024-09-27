@@ -1,8 +1,11 @@
 import React, { useState } from "react";
-import DatePicker from "./DatePicker";
 import TimePicker from "./TimePicker";
+import Purpose from "./Purpose";
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import CalendarComponent from "../CalendarComponent/CalendarComponent";
+import "./AppointmentForm.css";
+import Timeslot from "./Timeslot";
 
 const AppointmentForm = () => {
   const auth = useAuth();
@@ -10,12 +13,8 @@ const AppointmentForm = () => {
 
   const [date, setDate] = useState(null);
   const [time, setTime] = useState("");
+  const [purpose, setPurpose] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const handleLogout = () => {
-    auth.logout();
-    navigate("/login");
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -27,20 +26,15 @@ const AppointmentForm = () => {
   };
 
   return (
-    <>
-      <section className="appointment-form">
-        <form onSubmit={handleSubmit} aria-labelledby="form-title">
-          <h2 id="form-title">Schedule an Appointment</h2>
-
-          <DatePicker selectedDate={date} onDateChange={setDate} />
-          <TimePicker selectedTime={time} onTimeChange={setTime} />
-
-          <button type="submit">Schedule an Appointment</button>
-        </form>
-      </section>
-
-      <button onClick={handleLogout}>Logout</button>
-    </>
+    <section className="appointment-form">
+      <Timeslot />
+      <form onSubmit={handleSubmit} aria-labelledby="form-title">
+        <CalendarComponent value={date} onChange={setDate} />
+        <TimePicker selectedTime={time} onTimeChange={setTime} />
+        <Purpose selectedPurpose={purpose} onPurposeChange={setPurpose} />
+        <button type="submit">Schedule an Appointment</button>
+      </form>
+    </section>
   );
 };
 
