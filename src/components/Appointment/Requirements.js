@@ -1,6 +1,6 @@
 import React from "react";
 
-const Timeslot = () => {
+const Requirements = () => {
   const generateTimeOptions = () => {
     const times = [];
     for (let hour = 8; hour < 16; hour++) {
@@ -22,4 +22,4 @@ const Timeslot = () => {
   );
 };
 
-export default Timeslot;
+export default Requirements;

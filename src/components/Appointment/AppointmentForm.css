@@ -14,7 +14,6 @@
   border: solid 1px #d1d1d1;
   border-radius: 20px;
   margin: 20px;
-  height: 700px;
 }
 
 .appointment-form button[type="submit"] {
@@ -52,10 +51,23 @@
   padding: 10px 10px;
 }
 
-.requirements-container {
+.appointment-form section {
   border: 1px solid #d1d1d1;
   margin: 20px;
   border-radius: 20px;
-  padding: 30px;
-  height: 600px;
+  padding: 10px 30px;
+}
+
+.tracker-container form {
+  border: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.tracker-container input {
+  padding: 10px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  margin: 20px 0;
 }

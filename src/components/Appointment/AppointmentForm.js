@@ -5,7 +5,8 @@ import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import CalendarComponent from "../CalendarComponent/CalendarComponent";
 import "./AppointmentForm.css";
-import Timeslot from "./Timeslot";
+import Requirements from "./Requirements";
+import Tracker from "./Tracker";
 
 const AppointmentForm = () => {
   const auth = useAuth();
@@ -27,7 +28,11 @@ const AppointmentForm = () => {
 
   return (
     <section className="appointment-form">
-      <Timeslot />
+      <div className="test">
+        <Requirements />
+        <Tracker />
+      </div>
+
       <form onSubmit={handleSubmit} aria-labelledby="form-title">
         <CalendarComponent value={date} onChange={setDate} />
         <TimePicker selectedTime={time} onTimeChange={setTime} />
